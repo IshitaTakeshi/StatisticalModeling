@@ -48,11 +48,8 @@ function fit!(model::PoissonRegression, X::AA{Float64, 2}, y::AA{Int, 1},
               n_iter::Int)
     init_params!(model, X)
 
-    println(log_likelihood(model, X, y))
     for i in 1:n_iter
         update!(model, X, y)
-        println(model)
-        println(log_likelihood(model, X, y))
     end
     return model
 end
